@@ -1,0 +1,117 @@
+[DEBUG] - 2025-11-19 13:20:11:
+
+Weight Model start fitting with data:
+X.shape: (500, 3)
+
+Weight Model start fitting with parameters:
+local_estimator: RandomForestRegressor(n_estimators=50)
+leave_local_out: True
+sample_local_rate: None
+cache_data: False
+cache_estimator: False
+n_jobs: None
+n_patches: 8
+args: ()
+kwargs: {}
+
+[DEBUG] - 2025-11-19 13:20:11:
+
+Weight Matrix from Points Info:
+Coordinate Dimension: 1
+coordinate_vector[0].shape: (500, 2)
+
+[DEBUG] - 2025-11-19 13:20:11:
+
+Weight Matrix from Distance Info:
+Distance Dimension: 1
+distance_matrix[0].shape: (500, 500)
+kernel_type: bisquare
+distance_ratio: None
+bandwidth: None
+neighbour_count: 0.3
+
+[DEBUG] - 2025-11-19 13:20:11:
+Non-zero weight ratio: 0.3
+Average neighbour count: 150.0
+[DEBUG] - 2025-11-19 13:20:11:
+Distance Time: 0.0012509822845458984. Kernel Time: 0.009227991104125977
+[DEBUG] - 2025-11-19 13:20:22:
+Parallel fit time: 11.3777756690979
+[DEBUG] - 2025-11-19 13:32:34:
+
+Weight Model start fitting with data:
+X.shape: (784, 34)
+
+Weight Model start fitting with parameters:
+local_estimator: RandomForestRegressor(n_estimators=50, random_state=42)
+leave_local_out: True
+sample_local_rate: None
+cache_data: False
+cache_estimator: False
+n_jobs: None
+n_patches: 8
+args: ()
+kwargs: {}
+
+[DEBUG] - 2025-11-19 13:32:34:
+
+Weight Matrix from Points Info:
+Coordinate Dimension: 1
+coordinate_vector[0].shape: (784, 2)
+
+[DEBUG] - 2025-11-19 13:32:34:
+
+Weight Matrix from Distance Info:
+Distance Dimension: 1
+distance_matrix[0].shape: (784, 784)
+kernel_type: bisquare
+distance_ratio: None
+bandwidth: None
+neighbour_count: 0.3
+
+[DEBUG] - 2025-11-19 13:32:34:
+Non-zero weight ratio: 0.2997448979591837
+Average neighbour count: 235.0
+[DEBUG] - 2025-11-19 13:32:34:
+Distance Time: 0.0029420852661132812. Kernel Time: 0.019572019577026367
+[DEBUG] - 2025-11-19 13:33:11:
+Parallel fit time: 36.78512382507324
+[DEBUG] - 2025-11-19 13:39:32:
+
+Weight Model start fitting with data:
+X.shape: (784, 34)
+
+Weight Model start fitting with parameters:
+local_estimator: RandomForestRegressor(n_estimators=50, random_state=42)
+leave_local_out: True
+sample_local_rate: None
+cache_data: False
+cache_estimator: False
+n_jobs: None
+n_patches: 8
+args: ()
+kwargs: {}
+
+[DEBUG] - 2025-11-19 13:39:32:
+
+Weight Matrix from Points Info:
+Coordinate Dimension: 1
+coordinate_vector[0].shape: (784, 2)
+
+[DEBUG] - 2025-11-19 13:39:32:
+
+Weight Matrix from Distance Info:
+Distance Dimension: 1
+distance_matrix[0].shape: (784, 784)
+kernel_type: bisquare
+distance_ratio: None
+bandwidth: None
+neighbour_count: 0.3
+
+[DEBUG] - 2025-11-19 13:39:32:
+Non-zero weight ratio: 0.2997448979591837
+Average neighbour count: 235.0
+[DEBUG] - 2025-11-19 13:39:32:
+Distance Time: 0.003233194351196289. Kernel Time: 0.019762754440307617
+[DEBUG] - 2025-11-19 13:40:11:
+Parallel fit time: 39.35413122177124

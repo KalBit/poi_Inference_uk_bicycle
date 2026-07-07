@@ -1,0 +1,6 @@
+data/
+.Rproj.user
+*.csv
+.venv/
+georegression/.venv/
+eda/walkability/.venv/ 
