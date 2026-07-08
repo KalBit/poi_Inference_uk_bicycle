@@ -32,4 +32,4 @@ def get_euclidean_matrix(data):
     dist_matrix_df.to_csv(output_filename)
 
 
-get_euclidean_matrix("../data/")  ## should be January_M  create a file to make the january m dataset
+ ## should be January_M  create a file to make the january m dataset

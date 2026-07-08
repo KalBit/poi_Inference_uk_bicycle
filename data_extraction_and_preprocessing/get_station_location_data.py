@@ -1,5 +1,6 @@
 import requests
 import pandas as pd
+import os
 
 
 def extract_station_location_data():
@@ -43,10 +44,11 @@ def extract_station_location_data():
                     "latitude" : lat_list,
                     "longitude" : lon_list}
                     )
+    
 
 
-    stations_with_coords.to_csv("../data/station_location.csv",index=False)  
+
+    stations_with_coords.to_csv("../data/station_location.csv",index=False) 
     
     print("Bike Station Location Data Saved! ")
     
-extract_station_location_data()
