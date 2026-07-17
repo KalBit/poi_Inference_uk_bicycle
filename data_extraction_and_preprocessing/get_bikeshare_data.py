@@ -126,7 +126,7 @@ def extract_and_finalize_dataset():
     ]
 
 
-    stationwise_amenity_counts = pd.read_csv("../data/stationwise_amenity_count.csv")
+    # stationwise_amenity_counts = pd.read_csv("../data/stationwise_amenity_count.csv")
     stationwise_nearest_amenity_dist = pd.read_csv("../data/stationwise_amenity_dist.csv")
     stations_with_coords = pd.read_csv("../data/station_location.csv")
     uk_holidays = pd.read_csv("../data/uk_holiday.csv")
@@ -178,7 +178,6 @@ def extract_and_finalize_dataset():
         if month in  url["url"]:
             urls_for_month.append(url["url"])
 
-            
     data = pd.concat([pd.read_csv(file) for file in urls_for_month], ignore_index=True)
 
     # Remove Records with duration less than 1 minute
@@ -194,7 +193,7 @@ def extract_and_finalize_dataset():
     Month_data = data[data["s_date"].dt.month == month_map[month]]
     
     drop_column_list = ["Number", "End date", "End station number", "End station", "Bike number", "Bike model", "Total duration", "Total duration (ms)" ]
-    Month_data = Month_data.drop(columns=drop_column_list, axis=1)
+    Month_data = Month_data.drop(columns=drop_column_list)
     
     Month_data["s_hour"] = Month_data["s_date"].dt.hour
     Month_data["s_date"] = pd.to_datetime(Month_data["s_date"].dt.date)
@@ -234,7 +233,7 @@ def extract_and_finalize_dataset():
     Month_data["week_of_month"] = (Month_data["s_date"].dt.day - 1) // 7 + 1   
     Month_data["is_weekend"] = Month_data["day_of_week"].isin([5,6])
     Month_data["weekend_or_weekday_sdate"] = Month_data["is_weekend"].map({True: "weekend", False: "weekday"})
-    Month_data = Month_data.drop(columns=["is_weekend"], axis=1)
+    Month_data = Month_data.drop(columns=["is_weekend"])
     Month_data["count"] = Month_data["count"].fillna(0)
 
     time_of_day_conditions = [
@@ -278,40 +277,40 @@ def extract_and_finalize_dataset():
 
     pd.set_option('future.no_silent_downcasting', True)
     Month_data['is_holiday'] = Month_data['is_holiday'].fillna(False)
-    Month_data = Month_data.drop('date', axis=1)
+    Month_data = Month_data.drop(columns=['date'])
     
     Month_data['start_station_name'] = Month_data['start_station_name'].str.strip().str.lower()
-    stationwise_amenity_counts['start_station_name'] = stationwise_amenity_counts['start_station_name'].str.strip().str.lower()
+    # stationwise_amenity_counts['start_station_name'] = stationwise_amenity_counts['start_station_name'].str.strip().str.lower()
     stationwise_nearest_amenity_dist['start_station_name'] = stationwise_nearest_amenity_dist['start_station_name'].str.lower()
 
-    stationwise_amenity_counts = stationwise_amenity_counts.drop(columns=["longitude", "latitude"], axis=1)
+    # stationwise_amenity_counts = stationwise_amenity_counts.drop(columns=["longitude", "latitude"], axis=1)
 
-    amenity_count_col_corrected = {
-        "amenity=cafe_count_5min_walk":"cafe_count_5min_walk",
-        "amenity=pub_count_5min_walk":"pub_count_5min_walk",
-        "amenity=university_count_5min_walk":"university_count_5min_walk",
-        "amenity=bank_count_5min_walk":"bank_count_5min_walk",
-        "railway=station_count_5min_walk":"station_count_5min_walk"
+    # amenity_count_col_corrected = {
+    #     "amenity=cafe_count_5min_walk":"cafe_count_5min_walk",
+    #     # "amenity=pub_count_5min_walk":"pub_count_5min_walk",
+    #     # "amenity=university_count_5min_walk":"university_count_5min_walk",
+    #     # "amenity=bank_count_5min_walk":"bank_count_5min_walk",
+    #     # "railway=station_count_5min_walk":"station_count_5min_walk"
         
         
-    }
+    # }
 
-    Month_data = Month_data.merge(
-            stationwise_amenity_counts,
-            left_on="start_station_name",
-            right_on="start_station_name",
-            how="left"
-        )
+    # Month_data = Month_data.merge(
+    #         stationwise_amenity_counts,
+    #         left_on="start_station_name",
+    #         right_on="start_station_name",
+    #         how="left"
+    #     )
     
-    Month_data = Month_data.rename(columns=amenity_count_col_corrected)
+    # Month_data = Month_data.rename(columns=amenity_count_col_corrected)
 
     amenity_distance_col_list = [
             "start_station_name", 
             'dist_to_nearest_cafe',
-            'dist_to_nearest_pub',
-            'dist_to_nearest_university',
-            'dist_to_nearest_bank', 
-            'dist_to_nearest_railway_station',
+            # 'dist_to_nearest_pub',
+            # 'dist_to_nearest_university',
+            # 'dist_to_nearest_bank', 
+            # 'dist_to_nearest_railway_station',
             ]
 
 
@@ -322,7 +321,7 @@ def extract_and_finalize_dataset():
         how="left"
     )
 
-    Month_data = Month_data.drop(columns=["start_station_name"], axis=1)
+    Month_data = Month_data.drop(columns=["start_station_name"])
     
     print(f"Saving {month} data...")
 

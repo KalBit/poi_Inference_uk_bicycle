@@ -35,11 +35,11 @@ def main():
     else:
         extract_amenity_distance_data()
         
-    print("Fetching Amenity Count Data...")
-    if (os.path.exists("../data/stationwise_amenity_count.csv")):
-        print("Amenity Count Data file already exist!")
-    else:
-        extract_amenity_count_data()
+    # print("Fetching Amenity Count Data...")
+    # if (os.path.exists("../data/stationwise_amenity_count.csv")):
+    #     print("Amenity Count Data file already exist!")
+    # else:
+    #     extract_amenity_count_data()
     
     print("Fetching UK Holiday Data")
     if (os.path.exists("../data/uk_holiday.csv")):

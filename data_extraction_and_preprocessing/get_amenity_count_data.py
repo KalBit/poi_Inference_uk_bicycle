@@ -13,20 +13,20 @@ def extract_amenity_count_data():
 
     POI_TAGS = [
         {'amenity': 'cafe'},
-        {'amenity': 'atm'},
-        {'amenity': 'pub'},
-        {'amenity': 'school'},
-        {'amenity': 'university'},
-        {'amenity': 'college'},
-        {'amenity': 'bank'},
-        {'amenity': 'post_office'},
-        {'amenity': 'library'},
-        {'amenity': 'cinema'},
-        {'shop': 'supermarket'},
-        {'public_transport': 'platform'},
-        {'public_transport': 'stop_position'},
-        {'railway': 'station'},
-        {'highway': 'bus_stop'}
+        # {'amenity': 'atm'},
+        # {'amenity': 'pub'},
+        # {'amenity': 'school'},
+        # {'amenity': 'university'},
+        # {'amenity': 'college'},
+        # {'amenity': 'bank'},
+        # {'amenity': 'post_office'},
+        # {'amenity': 'library'},
+        # {'amenity': 'cinema'},
+        # {'shop': 'supermarket'},
+        # {'public_transport': 'platform'},
+        # {'public_transport': 'stop_position'},
+        # {'railway': 'station'},
+        # {'highway': 'bus_stop'}
     ]
 
     df = pd.read_csv('../data/station_location.csv')
