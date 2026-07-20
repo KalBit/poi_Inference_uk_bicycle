@@ -8,12 +8,12 @@ library(future)
 
 
 season<- "summer"
-number_of_days <- 61      # note that for winter only 59 days/summer 61 days/
+number_of_days <- 61      # note that for winter only 59 days,summer 61 days,spring 61 days and summer 61 days
 
 summer_file_path = "../data/jun_jul_aug_summer_dataset.csv"
 winter_file_path = "../data/jan_feb_winter_dataset.csv"
 autumn_file_path = "../data/sep_oct_nov_autumn_dataset.csv"
-spring_file_path = "../data/april_may_spring_dataset.csv"
+spring_file_path = "../data/mar_apr_may_spring_dataset.csv"
 
 
 
@@ -134,7 +134,7 @@ tidy(model, effects = "ran_pars")
 
 summary(model)
 
-########################################### DHARMa res check
+########################################### DHARMa residual check spatial
 set.seed(123)
 sims <- simulate(model, nsim = 500)
 obs  <- model$data$count
@@ -156,7 +156,7 @@ unique_coords <- model$data %>%
   group_by(start_station_number) %>%
   summarize(X = mean(X), Y = mean(Y), .groups = "drop")
 
-# --- SAVE PLOT 1: Spatial Autocorrelation ---
+# save plot 1 Spatial Autocorrelation
 png(paste(season,"dharma_spatial_autocorrelation.png"), width = 800, height = 600, res = 100)
 DHARMa::testSpatialAutocorrelation(
   dharma_grouped,
@@ -166,9 +166,10 @@ DHARMa::testSpatialAutocorrelation(
 dev.off()
 
 
-############## Temporal Autocorrelation Check (DHARMa Method) #############
 
-# 1. Recalculate residuals grouped by time index
+########################################### DHARMa residual check temporal
+
+# Recalculate residuals grouped by time index(here we chose time_idx because our main goal is to address lag 1)
 dharma_time_grouped <- DHARMa::recalculateResiduals(
   dharma_res,
   group = model$data$time_idx
@@ -177,7 +178,7 @@ dharma_time_grouped <- DHARMa::recalculateResiduals(
 # 2. Run temporal test using sorted unique time values
 sorted_time_steps <- sort(unique(model$data$time_idx))
 
-# --- SAVE PLOT 2: Temporal Autocorrelation ---
+# save plot 2 Temporal Autocorrelation
 png(paste(season,"dharma_temporal_autocorrelation.png"), width = 800, height = 600, res = 100)
 DHARMa::testTemporalAutocorrelation(
   dharma_time_grouped,
@@ -186,9 +187,9 @@ DHARMa::testTemporalAutocorrelation(
 dev.off()
 
 
-# 3. Visual ACF check
+# Visual ACF check
 
-# --- SAVE PLOT 3: ACF Plot ---
+# save plot 2 ACF Plot
 png(paste(season,"dharma_acf_plot.png"), width = 800, height = 600, res = 100)
 par(mfrow = c(1, 1))
 acf(
