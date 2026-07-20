@@ -12,7 +12,7 @@ import os
 from get_station_location_data import extract_station_location_data
 from get_walkable_graph import create_graphml
 from get_amenity_distance_data import extract_amenity_distance_data
-from get_amenity_count_data import extract_amenity_count_data
+# from get_amenity_count_data import extract_amenity_count_data
 from get_holiday_data import extract_holiday_data
 from get_bikeshare_data import extract_and_finalize_dataset
 

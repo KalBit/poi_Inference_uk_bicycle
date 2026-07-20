@@ -9,21 +9,22 @@ import numpy as np
 
 def extract_amenity_distance_data():
     POIS = {
-    "cafe": {'amenity': 'cafe'},
+    # "cafe": {'amenity': 'cafe'},
     # "pub": {'amenity': 'pub'},
     # "university": {'amenity': 'university'},
-    # "bank":{'amenity': 'bank'},
-    # "railway_station":{'railway': 'station'},
-    # "atm":{'amenity': 'atm'},
-    # "school":{'amenity': 'school'},
-    # "college":{'amenity': 'college'},
-    # "post_office":{'amenity': 'post_office'},
-    # "library":{'amenity': 'library'},
-    # "cinema":{'amenity': 'cinema'},
+    # # "bank":{'amenity': 'bank'},
+    # # "railway_station":{'railway': 'station'},
+    # # "atm":{'amenity': 'atm'},
+    # # "school":{'amenity': 'school'},
+    # # "college":{'amenity': 'college'},
+    # # "post_office":{'amenity': 'post_office'},
+    # # "library":{'amenity': 'library'},
+    # # "cinema":{'amenity': 'cinema'},
     # "supermarket":{'shop': 'supermarket'},
     # "platform":{'public_transport': 'platform'},
     # "stop_position":{'public_transport': 'stop_position'},
     # "bus_stop":{'highway': 'bus_stop'}
+    "station":{"public_transport":"station"}
     }
 
 
