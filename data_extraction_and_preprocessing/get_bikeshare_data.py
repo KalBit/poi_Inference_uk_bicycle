@@ -306,10 +306,10 @@ def extract_and_finalize_dataset():
 
     amenity_distance_col_list = [
             "start_station_name", 
-            # 'dist_to_nearest_cafe',
-            # 'dist_to_nearest_pub',
-            # 'dist_to_nearest_university',
-            # 'dist_to_nearest_bank', 
+            'dist_to_nearest_cafe',
+            'dist_to_nearest_pub',
+            'dist_to_nearest_university',
+            'dist_to_nearest_bank', 
             'dist_to_nearest_station'
             ]
 
