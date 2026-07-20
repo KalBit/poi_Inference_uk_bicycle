@@ -38,4 +38,4 @@ All predictive and inferential models are housed in the `model` directory. This 
 *   **Spatial Data Models (SDM)**: Utilizing Template Model Builder (TMB) frameworks to handle complex spatial autocorrelation and POI inference.
 *   **Seasonal Evaluations**: Dedicated evaluation workflows assessing model performance independently across all four seasons to account for temporal variations in bicycle usage.
 
-Run the model R scripts in the `model` directory
+Run the model R scripts in the `model` directory. The model outputs will be saved in the `outputs` directory.
