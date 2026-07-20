@@ -60,8 +60,9 @@ print("creating, filtering, and structuring seasonal datasets")
 winter_dataset <- bind_rows(jan %>% mutate(month = 1), feb %>% mutate(month = 2)) %>% 
   filter(start_station_number %in% master_top_100_list) %>% relocate(count, .after = last_col())
 
-# Spring: March (1), April (2), May (3) -> FIXED: Added March and fixed sequence
-spring_dataset <- bind_rows(march %>% mutate(month = 1), april %>% mutate(month = 2), may %>% mutate(month = 3)) %>% 
+# Spring: April (2), May (3) march is removed because it is not considered in 2 months in spring and it has some
+#missing days
+spring_dataset <- bind_rows(april %>% mutate(month = 2), may %>% mutate(month = 3)) %>% 
   filter(start_station_number %in% master_top_100_list) %>% relocate(count, .after = last_col())
 
 # Summer: June (1), July (2), Aug (3)
