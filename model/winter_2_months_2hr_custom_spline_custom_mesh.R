@@ -156,8 +156,8 @@ unique_coords <- model$data %>%
   group_by(start_station_number) %>%
   summarize(X = mean(X), Y = mean(Y), .groups = "drop")
 
-# save plot 1 Spatial Autocorrelation 
-png(paste(season,"dharma_spatial_autocorrelation.png"), width = 800, height = 600, res = 100)
+# Save plot 1 Spatial Autocorrelation
+png(paste0("../outputs/",season,"dharma_spatial_autocorrelation.png"), width = 800, height = 600, res = 100)
 DHARMa::testSpatialAutocorrelation(
   dharma_grouped,
   x = unique_coords$X,
@@ -178,7 +178,7 @@ dharma_time_grouped <- DHARMa::recalculateResiduals(
 sorted_time_steps <- sort(unique(model$data$time_idx))
 
 # save plot 2 Temporal Autocorrelation
-png(paste(season,"dharma_temporal_autocorrelation.png"), width = 800, height = 600, res = 100)
+png(paste0("../outputs/", season, "_dharma_temporal_autocorrelation.png"), width = 800, height = 600, res = 100)
 DHARMa::testTemporalAutocorrelation(
   dharma_time_grouped,
   time = sorted_time_steps
@@ -188,8 +188,8 @@ dev.off()
 
 # Visual ACF check
 
-# save plot 3 ACF Plot 
-png(paste(season,"dharma_acf_plot.png"), width = 800, height = 600, res = 100)
+# save plot 3 ACF Plot
+png(paste0("../outputs/",season,"dharma_acf_plot.png"), width = 800, height = 600, res = 100)
 par(mfrow = c(1, 1))
 acf(
   dharma_time_grouped$scaledResiduals,
@@ -207,3 +207,5 @@ loglik_val <- logLik(model)
 aic_val
 bic_val
 loglik_val
+
+

@@ -125,7 +125,7 @@ model <- sdmTMB(
 
 
 
-saveRDS(model, paste("model_",season,"_2hr_blk_100stations_few_amenities_custom_spline_cstm_mesh.rds"))
+saveRDS(model, paste0("../data/model_",season,"_2hr_blk_100stations_few_amenities_custom_spline_cstm_mesh.rds"))
 
 
 sanity(model)
@@ -159,7 +159,7 @@ unique_coords <- model$data %>%
   summarize(X = mean(X), Y = mean(Y), .groups = "drop")
 
 # Save plot 1 Spatial Autocorrelation
-png(paste(season,"dharma_spatial_autocorrelation.png"), width = 800, height = 600, res = 100)
+png(paste0("../outputs/",season,"dharma_spatial_autocorrelation.png"), width = 800, height = 600, res = 100)
 DHARMa::testSpatialAutocorrelation(
   dharma_grouped,
   x = unique_coords$X,
@@ -180,7 +180,7 @@ dharma_time_grouped <- DHARMa::recalculateResiduals(
 sorted_time_steps <- sort(unique(model$data$time_idx))
 
 # save plot 2 Temporal Autocorrelation
-png(paste(season,"dharma_temporal_autocorrelation.png"), width = 800, height = 600, res = 100)
+png(paste0("../outputs/", season, "_dharma_temporal_autocorrelation.png"), width = 800, height = 600, res = 100)
 DHARMa::testTemporalAutocorrelation(
   dharma_time_grouped,
   time = sorted_time_steps
@@ -191,7 +191,7 @@ dev.off()
 # Visual ACF check
 
 # save plot 3 ACF Plot
-png(paste(season,"dharma_acf_plot.png"), width = 800, height = 600, res = 100)
+png(paste0("../outputs/",season,"dharma_acf_plot.png"), width = 800, height = 600, res = 100)
 par(mfrow = c(1, 1))
 acf(
   dharma_time_grouped$scaledResiduals,
