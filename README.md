@@ -2,6 +2,11 @@
 
 This repository contains the codebase and documentation for researching the spatial relationship between Points of Interest (POIs) and bicycle-sharing behaviors in the UK. The project is structured to facilitate transparent data extraction, rigorous preprocessing, and robust spatial modeling, making it fully reproducible for research purposes.
 
+TFL Data Portal - [TFL Cycling data](https://cycling.data.tfl.gov.uk)
+
+## Note
+The distances may slighlty change when extracting data as the distance data were extracted in 2025 using Open street map.
+
 ## Repository Structure
 
 The project directory is organized into several key folders to separate the data pipeline, analysis, and modeling components:
